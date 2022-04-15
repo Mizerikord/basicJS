@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+  <input type="text" placeholder="Введите температуру C&#176;" class="celsium" value="">
+  <input type="submit" value="перевод в F&#176;" class="runBtn">
+<!--
+Обязательное задание.
+
+Необходимо пользователя попросить ввести температуру в градусах Цельсия,
+преобразовать введенное пользователем значение в соответствующую температуру
+в градусах по Фаренгейту и вывести в alert сообщение с текстом:
+"Цельсий: {C}, Фаренгейт: {F}"
+Где вместо {C} и {F} должны быть подставлены соответствующие значения, которые
+были получены ранее.
+Формула перевода градусов Цельсия в градусы Фаренгейта:
+градусы Фаренгейта = (9 / 5) * градусы Цельсия + 32
+
+Уточнение: пользователь всегда вводит корректное число.
+-->
+<script>
+"use strict";
+let runFunction = document.getElementsByClassName("runBtn")[0];
+console.log(runFunction);
+let formula = () =>{
+    let temperatureC = document.getElementsByClassName("celsium")[0].value;
+    let temperatureF = (9 / 5) * temperatureC + 32;
+    alert(temperatureF);
+    console.log(temperatureC);
+}
+runFunction.addEventListener("click", formula);
+//Нужно было проще, конено, но, думаю не критично. 
+//Кстати вопрос, пробелы Таб-ом ставить или 4 пробела все же лучше?
+</script>
+</body>
+</html>
