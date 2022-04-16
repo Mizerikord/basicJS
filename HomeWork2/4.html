@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+  <input type="text" class="numberUser_1" value="" placeholder="Введите 1 число"><br>
+  <input type="text" class="numberUser_2" value="" placeholder="Введите 2 число"><br>
+  <input type="button" value="sumBtn" class="sumBtn">
+  <input type="button" value="difBtn" class="difBtn">
+  <input type="button" value="mulBtn" class="mulBtn">
+  <input type="button" value="divBtn" class="divBtn">
+<!--
+Обязательное задание.
+
+Необходимо реализовать четыре функции, каждая функция должна принимать по два
+числа и выполнять одну из операций (каждая функция выполняет одну из них):
+1. Сложение
+2. Разность
+3. Умножение
+4. Деление
+
+Необходимо сделать так, чтобы функция вернула число, например выражение
+`console.log(sum(2, 6));` должно вывести число 8 в консоль (sum - функция
+сложения в данном примере, ваши названия функций могут отличаться).
+
+Округлять значения, которые возвращают функции не нужно, однако, обратите
+внимание на разность, функция должна вычесть из большего числа меньшее, либо
+вернуть 0, если числа равны.
+
+Функциям всегда передаются корректные числа, проверки на NaN, Infinity делать
+не нужно.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+<script>
+  "use strict";
+
+  const numDif = document.getElementsByClassName("difBtn")[0];
+  const numMul = document.getElementsByClassName("mulBtn")[0];
+  const numDiv = document.getElementsByClassName("divBtn")[0];
+  const numSum = document.getElementsByClassName("sumBtn")[0];
+
+  function runSum () {
+    let a = +document.getElementsByClassName("numberUser_1")[0].value;
+    let b = +document.getElementsByClassName("numberUser_2")[0].value;
+    console.log(a + b);
+  };
+
+  function runDif () {
+    let a = +document.getElementsByClassName("numberUser_1")[0].value;
+    let b = +document.getElementsByClassName("numberUser_2")[0].value;
+    if (a > b) {
+      console.log(a - b);
+    } else {
+      console.log(b - a);
+    }
+  };
+
+  function runMul () {
+    let a = +document.getElementsByClassName("numberUser_1")[0].value;
+    let b = +document.getElementsByClassName("numberUser_2")[0].value;
+    console.log(a * b);
+  };
+
+  function runDiv () {
+    let a = +document.getElementsByClassName("numberUser_1")[0].value;
+    let b = +document.getElementsByClassName("numberUser_2")[0].value;
+    console.log(a / b);
+  };
+
+  numSum.addEventListener("click", runSum);
+  numMul.addEventListener("click", runMul);
+  numDiv.addEventListener("click", runDiv);
+  numDif.addEventListener("click", runDif);
+
+  /* Уверен, что можно сделать намного проще...также был уверен, что a и b примут значение глобальной 
+  переменной, но, вне функции они принимают значение = 0, т.к. еще не введены значения, когда код их считал
+  Не понял, что за комментарий необходимо прописать к каждой функции?
+  */
+</script>
+</body>
+</html>

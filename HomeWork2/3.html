@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+  <input type="text" class="numberUser_1" value="" placeholder="Введите 1 число"><br>
+  <input type="text" class="numberUser_2" value="" placeholder="Введите 2 число"><br>
+  <input type="button" value="activate function" class="runBtn">
+<!--
+Обязательное задание.
+
+Необходимо попросить пользователя ввести два числа в переменные `a` и `b`.
+Необходимо вывести в консоль один результат из следующих проверок:
+1. Если оба числа в переменных `a` и `b` положительные, вывести разность
+чисел `a` и `b`, а именно, вычесть из переменной `a` значение переменной `b`.
+2. Если оба числа в переменных `a` и `b` отрицательные, вывести произведение
+чисел `a` и `b`.
+3. Если числа в переменных `a` и `b` разных знаков, вывести сумму чисел
+`a` и `b`.
+В остальных случаях программа не должна ничего выводить.
+-->
+<script>
+  "use strict";
+  let runFunction = document.getElementsByClassName("runBtn")[0];
+  function runExpression () {
+    let a = +document.getElementsByClassName("numberUser_1")[0].value;
+    let b = +document.getElementsByClassName("numberUser_2")[0].value;
+    if (a > 0 && b > 0) {
+      let diff = a - b;
+      console.log(diff);
+    } else if (a < 0 && b < 0) {
+      let multiply = a * b;
+      console.log(multiply);
+    } else if (a < 0 < b || a > 0 > b) {
+      let sum = a + b;
+      console.log(sum);
+    } else {
+      console.log("введены или число 0 или не числовое значение!");
+    }
+  }; // для чего точка с запятой здесь? для стилистики? вроде ни на что она не влияет...
+  runFunction.addEventListener("click", runExpression);
+
+  // Все ничего, но не понятно, почему  в (a < 0 < b || a > 0 > b) этом выражении в уравнение текст попадает и конкатинируется?
+</script>
+</body>
+</html>

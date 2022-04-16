@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+  <input type="text" class="numberUser_1" value="" placeholder="Введите 1 число"><br>
+  <input type="text" class="numberUser_2" value="" placeholder="Введите 2 число"><br>
+  <input type="button" value=" + " class="sumBtn">
+  <input type="button" value=" - " class="difBtn">
+  <input type="button" value=" * " class="mulBtn">
+  <input type="button" value=" / " class="divBtn">
+<!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+<script>
+  "use strict";
+
+  let numDif = document.getElementsByClassName("difBtn")[0];
+  let numMul = document.getElementsByClassName("mulBtn")[0];
+  let numDiv = document.getElementsByClassName("divBtn")[0];
+  let numSum = document.getElementsByClassName("sumBtn")[0];
+  // let a = +document.getElementsByClassName("numberUser_1")[0].value;
+  // let b = +document.getElementsByClassName("numberUser_2")[0].value;
+  let arg1, arg2;
+  function mathOperation(arg1, arg2, operation){
+    arg1 = +document.getElementsByClassName("numberUser_1")[0].value;
+    arg2 = +document.getElementsByClassName("numberUser_2")[0].value;
+    switch (operation) {
+      case "+": return runSum (arg1, arg2);
+      function runSum (arg1, arg2) {
+      console.log(arg1 + arg2);
+    };
+      case "-": return runDif (arg1, arg2);
+      function runDif (arg1, arg2) {
+      if (arg1 > arg2) {
+        console.log(arg1 - arg2);
+      } else {
+        console.log(arg2 - arg1);
+      }
+    };
+      case "*": return runMul (arg1, arg2);
+      function runMul (arg1, arg2) {
+      console.log(arg1 * arg2);
+    };
+      case "/": return runDiv (arg1, arg2);
+      function runDiv (arg1, arg2) {
+      console.log(arg1 / arg2);    
+    };
+      default: return NaN;
+  }
+    
+  };
+  numSum.addEventListener("click", mathOperation(arg1, arg2, "+"));
+  numMul.addEventListener("click", mathOperation(arg1, arg2, "*"));
+  numDiv.addEventListener("click", mathOperation(arg1, arg2, "/"));
+  numDif.addEventListener("click", mathOperation(arg1, arg2, "-"));
+
+  /*Не получилось... не пойму, как подкинуть значения a, b
+  как передать обработчику параметры, не запуская функцию, тоже не пойму, пробовал через bind не работает.
+  По факту, должно податься пустое значение arg1, arg2 и перезаписаться уже в функции, получиться некий "костыль".
+  Не понятно, почему выдает 0, если к примеру numSum.addEventListener("click", mathOperation(2, 3, "+")); подам так аргументы.
+  В решениях вообще код не рабочий, даже если задать значения по умолчанию.
+  */
+</script>
+</body>
+</html>
